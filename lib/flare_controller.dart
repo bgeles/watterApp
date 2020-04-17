@@ -53,4 +53,24 @@ class AnimationControls extends FlareController {
     }
     return true;
   }
+
+  void playAnimation(String animName) {
+    ActorAnimation animation = _artboard.getAnimation(animName);
+
+    if (animation != null) {
+      _baseAnimations.add(
+        FlareAnimationLayer()
+          ..name = animName
+          ..animation = animation,
+      );
+    }
+  }
+
+  void updateWaterPercent(double amt) {
+    _waterFill = amt;
+  }
+
+  void resetWater() {
+    _waterFill = 0;
+  }
 }
